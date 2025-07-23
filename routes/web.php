@@ -10,6 +10,11 @@ use App\Http\Controllers\DepartmentController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\DashboardController;
 
+Route::get('login', [App\Http\Controllers\AuthController::class, 'showLoginForm'])->name('login');
+Route::post('login', [App\Http\Controllers\AuthController::class, 'login']);
+Route::get('register', [App\Http\Controllers\AuthController::class, 'showRegisterForm'])->name('register');
+Route::post('register', [App\Http\Controllers\AuthController::class, 'register']);
+
 Route::get('/', [DashboardController::class, 'index'])->name('dashboard');
 
 Route::resource('employee', EmployeeController::class);
